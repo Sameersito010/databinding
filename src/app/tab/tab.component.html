@@ -1,0 +1,157 @@
+<!-- <ul class="nav nav-pills">
+    <li class="nav-item" (click)="selectSkill('javascript')">
+        <a href="javascript:;" class="nav-link">Javascript</a>
+        [ngClass]="{
+            active:selectSkillset.tolowerCase().includes('javascript')
+        }"
+    </li>
+    <li class="nav-item" (click)="selectSkill('angular')">
+        <a href="javascript:;" class="nav-link">Angular</a>
+        [ngClass]="{
+            active:selectSkillset.tolowerCase().includes('angular')
+        }"
+    </li>
+    <li class="nav-item" (click)="selectSkill('node')">
+        <a href="javascript:;" class="nav-link">Node</a>
+        [ngClass]="{
+            active:selectSkillset.tolowerCase().includes('node')
+        }"
+    </li>
+</ul>
+
+<div class="tab">
+     <div class="card" *ngIf="selectSkillSet.toLowerCase().includes('javascript')">
+        <div class="card-body">
+          <strong>  Lorem </strong>
+          ipsum, dolor sit amet consectetur adipisicing elit. Harum, eligendi aspernatur. 
+          Necessitatibus id aliquid ipsam, delectus nisi, perspiciatis amet mollitia quisquam officiis
+           exercitationem soluta a ut dicta labore consectetur porro!
+        </div>
+     </div>
+
+     <div class="card" *ngIf="selectSkillSet.toLowerCase().includes('angular')">
+        <div class="card-body">
+          <strong>  Lorem </strong>ipsum, dolor sit amet consectetur adipisicing elit. 
+          Harum, eligendi aspernatur. Necessitatibus id aliquid ipsam, delectus nisi, perspiciatis 
+          amet mollitia quisquam officiis exercitationem soluta a ut dicta labore consectetur porro!
+        </div>
+     </div>
+
+     <div class="card" *ngIf="selectSkillSet.toLowerCase().includes('node')">
+        <div class="card-body">
+            <strong>Lorem </strong>ipsum, dolor sit amet consectetur adipisicing elit. Harum, 
+            eligendi aspernatur. Necessitatibus id aliquid ipsam, delectus nisi,
+             perspiciatis amet mollitia quisquam officiis exercitationem soluta a ut dicta labore
+              consectetur porro!
+        </div>
+     </div>
+</div> -->
+
+
+
+<ul class="nav nav-pills">
+<li class="nav-item" (click)="selectSkill('javascript')">
+    <a href="javascript:;"  [ngClass]="{
+        active:selectSkillSet.toLowerCase().includes('javascript')
+    }" class="nav-link">javascript</a>
+   
+</li>
+<li class="nav-item" (click)="selectSkill('angular')">
+    <a href="javascript:;" [ngClass]="{
+        active:selectSkillSet.toLowerCase().includes('angular')}"class="nav-link">angular</a>
+</li>
+<li class="nav-item" (click)="selectSkill('node')">
+    <a href="javascript:;" [ngClass]="{
+        active:selectSkillSet.toLowerCase().includes('node')}" class="nav-link">node</a>
+</li>
+</ul>
+
+<div class="tab">
+    <div class="card" *ngIf="selectSkillSet.toLowerCase().includes('javascript')">
+       <div class="card-body">
+         <strong>  Pradeep</strong>
+         ipsum, dolor sit amet consectetur adipisicing elit. Harum, eligendi aspernatur. 
+         Necessitatibus id aliquid ipsam, delectus nisi, perspiciatis amet mollitia quisquam officiis
+          exercitationem soluta a ut dicta labore consectetur porro!
+       </div>
+    </div>
+
+    <div class="card" *ngIf="selectSkillSet.toLowerCase().includes('angular')">
+       <div class="card-body">
+         <strong>  Anuja </strong>ipsum, dolor sit amet consectetur adipisicing elit. 
+         Harum, eligendi aspernatur. Necessitatibus id aliquid ipsam, delectus nisi, perspiciatis 
+         amet mollitia quisquam officiis exercitationem soluta a ut dicta labore consectetur porro!
+       </div>
+    </div>
+
+    <div class="card" *ngIf="selectSkillSet.toLowerCase().includes('node')">
+       <div class="card-body">
+           <strong>Sameer </strong>ipsum, dolor sit amet consectetur adipisicing elit. Harum, 
+           eligendi aspernatur. Necessitatibus id aliquid ipsam, delectus nisi,
+            perspiciatis amet mollitia quisquam officiis exercitationem soluta a ut dicta labore
+             consectetur porro!
+       </div>
+    </div>
+</div> 
+
+
+//=============================================================================================//
+
+<!-- <ul class="nav nav-pills">
+<li class="nav-item" 
+*ngFor="let skill of apparry"  (click)="selectSkillSet=skill.Aname">
+    <a class="nav-link" href="javascript:;" [ngClass]="{
+        active:selectSkillSet.toLocaleLowerCase().includes(skill.Aname)
+    }">
+    {{skill.Aname}}    
+    </a>
+</li>
+</ul> -->
+
+<!-- <div class="tab-body">
+    <ng-container *ngFor="let skill of apparry">
+    <div class="card" *ngIf="selectskills.toLowerCase().includes(skill.content)">
+        <div class="card-body"[innerHTML]="skill.content">
+            {{skill.content}}
+        </div>
+     </div>
+     </ng-container>
+</div> -->
+
+<!-- <div class="tab-body">
+    <ng-container *ngFor="let skill of apparry">
+        <div class="card" *ngIf="selectSkillSet.toLowerCase().includes(skill.Aname)">
+            <div class="card-body"[innerHTML]="skill.content">
+                {{skill.content}}
+            </div>
+
+        </div>
+
+    </ng-container>
+
+</div> -->
+
+
+<ul class="nav nav-pills">
+    <li class="nav-item" 
+    *ngFor="let skill of apparry"  (click)="selectSkillSet=skill.Aname">
+        <a class="nav-link" href="javascript:;" [ngClass]="{
+            active:selectSkillSet.toLocaleLowerCase().includes(skill.Aname)
+        }">
+        {{skill.Aname}}    
+        </a>
+    </li>
+    </ul>
+
+<div class="tab-body">
+    <ng-container [ngSwitch]="selectSkillSet">
+        <div class="card" *ngSwitchCase="'javascript'">
+            <div class="card-body"[innerHTML]="skill.content">
+                {{skill.content}}
+            </div>
+
+        </div>
+
+    </ng-container>
+
+</div>
